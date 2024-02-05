@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>h4</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
@@ -19,6 +19,7 @@
         <input type="number" name="b" id="b"><br>
         <input type="submit" value="Arvuta">
     </form>
+    <hr>
     <?php
 
         // $jagamine = $a / $b
@@ -34,7 +35,47 @@
         echo "Vastus on ".$v."<br>";
     }
 }
+
     ?>
+        <form action="#" method="get">
+        <label for="c">Sisesta esimese inimese vanus</label><br>
+        <input type="number" name="c" id="c"><br>
+        <label for="d">sisesta teise inimese vanus</label><br>
+        <input type="number" name="d" id="d"><br>
+        <input type="submit" value="Sisesta">
+    </form>
+    
+    <?php
+    //vanused
+    if(!empty($_GET["c"]) && !empty($_GET["d"])){
+      $c = $_GET["c"];
+      $d = $_GET["d"];
+    if($c == $d){
+      echo "Nad on sama vanused.";
+    }elseif($c > $d){
+      echo "esimene inimene on vanem";
+    }elseif($c < $d){
+      echo "teine inimene on vanem";
+    }
+    }
+    ?>
+    <hr>
+    <form action="#" method="get">
+        <label for="e">Sisesta kylg 1</label><br>
+        <input type="number" name="e" id="e"><br>
+        <label for="f">sisesta kylg 2</label><br>
+        <input type="number" name="f" id="f"><br>
+        <input type="submit" value="Sisesta">
+    </form>
+    <?php
+    if(!empty($_GET["e"]) && !empty($_GET["f"])){
+      $e = $_GET["e"];
+      $f = $_GET["f"];
+    if()
+    }
+    ?>
+
+
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
