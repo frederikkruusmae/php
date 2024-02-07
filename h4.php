@@ -71,10 +71,60 @@
     if(!empty($_GET["e"]) && !empty($_GET["f"])){
       $e = $_GET["e"];
       $f = $_GET["f"];
-    if()
+    if($e == $f) {
+      echo "Tegu on ruuduga, sest molemad kyljed on v6rdsed.";
+      echo "<img src='img/SquareDefinition.svg.png'>";
+    } else {
+      echo "Tegu on ristkylikuga, sest kyljed ei ole v6rdsed.";
+      echo "<img src='img/1419039.png'>";
+    }
     }
     ?>
+    <hr>
+    <form action="#" method="get">
+        <label for="g">sisesta enda synniaasta</label><br>
+        <input type="number" name="g" id="g"><br>
+        <input type="submit" value="Sisesta">
+  </form>
+      
+      <?php
+      if(!empty($_GET["g"])){
+        $g = $_GET["g"];
 
+      if(($g % 5) == 0) {
+        echo "Sinu sisestatud aasta $g on juubeli aasta.";
+      } else {
+        echo "Sinu sisestatud aasta $g ei ole juubeli aasta.";
+      }
+      }  
+      ?>
+      <hr>
+      <form action="#" method="get">
+        <label for="h">sisesta enda KT punktide arv</label><br>
+        <input type="number" name="h" id="h"><br>
+        <input type="submit" value="Sisesta">
+    </form>
+
+    <?php
+    if(!empty($_GET["h"])){
+      $h = $_GET["h"];
+    switch(true) {
+      case $h >= 10:
+        echo "SUPER";
+        break;
+      case $h >= 5 && $h <= 9:
+        echo "TEHTUD";
+        break;
+      case $h < 5:
+        echo "KASIN";
+        break;
+      default:
+        echo "SISESTA OMA PUNKTID!";
+      }
+    } else {
+        echo "SISESTA OMA PUNKTID";
+    }
+    ?>
 
 
     </div>
