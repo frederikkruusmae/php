@@ -77,8 +77,84 @@
             echo $v. "<br>";
           }
         }
+        ?>
+        <hr>
+        <?php
+        $palk = array(1220, 1213, 1295, 1312, 1298, 1354, 1296, 1286, 1292, 1327, 1369, 1455);
+        $keskmine = array_sum($palk) / count($palk);
+        echo "Keskmine palk: $keskmine <br>";
+        ?>
+        <hr>
+        <?php
+        $firmad = array("Kimia","Mynte","Voomm","Twiyo","Layo","Talane","Gigashots","Tagchat","Quaxo","Voonyx","Kwilith","Edgepulse","Eidel","Eadel","Jaloo","Oyope","Jamia");
+        foreach($firmad as $firma) {
+          echo "$firma <br>";
+        }
+        
+        echo "<form action='#' method='get'> Firma kustutamine:  <input type='text' name='kustuta' id='kustuta'> <input type='submit' value='Kustuta'> </form>";
+        $kustuta = $_GET["kustuta"];
+        if(!empty($_GET["kustuta"])){
+          if(in_array($kustuta, $firmad)){
+            $key = array_search($kustuta, $firmad);
+            unset($firmad[$key]);
+            echo "Kustutatud firma: ";
+            foreach($firmad as $firma){
+              echo "$firma<br>";
+            }
+          } else {
+              echo "Sellist firmat pole";
+          }
+        }
+        ?>
+        <hr>
+        <?php
+        $Riigid = array("Indonesia","Canada","Kyrgyzstan","Germany","Philippines","Philippines","Canada","Philippines","South Sudan","Brazil","Democratic Republic of the Congo","Indonesia","Syria","Sweden","Philippines","Russia","China","Japan","Brazil","Sweden","Mexico","France","Kazakhstan","Cuba","Portugal","Czech Republic");
+        $len = array_map("strlen", $Riigid);
+        $index = array_search(max($len), $len);
+        echo $Riigid[$index]; 
+        echo "<br>";
+        echo max($len);
+        ?>
+        <hr>
+        <?php
+        $hiina = array("瀚聪","月松","雨萌","展博","雪丽","哲恒","慧妍","博裕","宸瑜","奕漳","思宏","伟菘","彦歆","睿杰","尹智","琪煜","惠茜","晓晴","志宸","博豪","璟雯","崇杉","俊誉","军卿","辰华","娅楠","志宸","欣妍","明美");
+        sort($hiina);
+        echo "Esimene: ";
+        echo $hiina[0];
+        echo "<br>";
+        echo "Viimane: ";
+        echo $hiina[count($hiina)-1];
+        ?>
+        <hr>
+
+        <?php
+        $guugul = array("Feake","Bradwell","Dreger","Bloggett","Lambole","Daish","Lippiett","Blackie","Stollenbeck","Houseago","Dugall","Sprowson","Kitley","Mcenamin","Allchin","Doghartie","Brierly","Pirrone","Fairnie","Seal","Scoffins","Galer","Matevosian","DeBlase","Cubbin","Izzett","Ebi","Clohisey","Prater","Probart","Samwaye","Concannon","MacLure","Eliet","Kundt","Reyes");
+
+        echo '<form action="#" method="get"> <input type="text" name="guugul" id="guugul"> <input type="submit" value="Otsi"> </form>';
+
+        $guugulget = $_GET['guugul'];
+        if(!empty($_GET["guugul"])){
+          if(in_array($guugulget, $guugul)){
+            $key = array_search($guugulget, $guugul);
+            echo "<div class=\"alert alert=primary\" role=\"alert\">Otsisid $guugulget ja leidsin $guugul[$key]</div>";
+          } else { 
+            echo "<div class=\"alert alert=warninga\" role=\"alert\">ei leidnud</div>";
+          }
+        }
+        ?>
+        <hr>
+        <?php
+        $pildid = array("prentice.jpg","freeland.jpg","peterus.jpg","devlin.jpg","gabriel.jpg","pete.jpg");
+        echo "<img src=\"img/$pildid[2]\" alt=\"\" width=\"100px\">";
+        echo '<div class="row">';
+        foreach($pildid as $pilt){
+            echo "<div class='col-sm-2'><img src='img/$pilt' alt='' width='100px'></div>";
+        }
 
         ?>
+        
+
+        
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
