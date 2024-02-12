@@ -53,10 +53,77 @@
         ?>
         <hr>
         <?php
-        function ristkylik(){
+        function ristkylik($kulg1, $kulg2){
+            echo "Ristkyliku pindala on ".$kulg1 * $kulg2;
 
         }
+        echo "<form action='#' method='get'>
+                    <input type='number' name='kulg1' id='kulg1' value='kulg1' />
+                    <input type='number' name='kulg2' id='kulg2' value='kulg2' />
+                    <input type='submit' value='Sisesta' />
+                    </form>";
+                if (isset($_GET['kulg1']) && isset($_GET['kulg2'])){
+                    ristkylik($_GET['kulg1'], $_GET['kulg2']);
+                }
         ?>
+        <hr>
+        <?php
+        function isikukood(){
+            echo "<form action='#' method='get'>
+                    <input type='number' name='isikukood' id='isikukood' value='isikukood' />
+                    <input type='submit' value='Saada' />
+                    </form>";
+                if (isset($_GET['isikukood'])){
+                if (strlen($_GET['isikukood']) == 11){
+                    echo "Isikukood on korrektne";
+                } else {
+                    echo "Isikukood on vale";
+                }
+                switch (substr($_GET['isikukood'], 0, 1)){
+                    case 1:
+                        $aasta = "18";
+                        $sugu = "mees";
+                        break;
+                    case 2:
+                        $aasta = "18";
+                        $sugu = "naine";
+                        break;
+                    case 3:
+                        $aasta = "19";
+                        $sugu = "mees";
+                        break;
+                    case 4:
+                        $aasta = "19";
+                        $sugu = "naine";
+                        break;
+                    case 5:
+                        $aasta = "20";
+                        $sugu = "mees";
+                        break;
+                    case 6:
+                        $aasta = "20";
+                        $sugu = "naine";
+                        break;
+                        default:
+                            echo "Vale isikukood";
+                            break;
+                 }
+                    echo "<br> Sugu: ".$sugu;
+                    echo "<br> Sünd: ".$aasta.substr($_GET['isikukood'], 1, 2);
+                }
+        }
+            isikukood();
+            ?>
+            <hr>
+            <?php
+            function motted(){
+                $alus = array("Albert", "Mauno", "Madis");
+                $oeldis = array("on", "ei ole", "täiega");
+                $sihitis = array("pede", "suur", "karvane");
+                echo $alus[rand(0,2)]." ".$oeldis[rand(0,2)]." ".$sihitis[rand(0,2)];
+            }
+            motted();
+            ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
