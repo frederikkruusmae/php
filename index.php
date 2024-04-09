@@ -27,6 +27,7 @@
         <li><a href="leht1.php">leht1</a></li>
         <li><a href="leht2.php">leht2</a></li>
         <li><a href="leht3.php">leht3</a></li>
+        <li><a href="Admin.php">kontrolltoo_admin</a></li>
         
     </ul>
 </body>
